@@ -36,18 +36,24 @@ def add_item(i: object):
     for j in range(spacey - 1):
         print(j)
         x = cord['x']
-        y = cord['y']+j
+        y = cord['y'] + j
         print(x)
         print(y)
         board[x][y] = id
 
 
 def init_board():
+    board[0][0] = 'hole'
     add_item(fox)
 
 
-# print(fox)
-# init_board()
+def move(item, x, y):
+    pass
 
-board[1][2] = 'test'
+    # print(fox)
+    # init_board()
+
+
+board[0][0] = 'hole'
+# board[1][2] = 'test'
 print(board)
