@@ -18,12 +18,12 @@ class StepList() {
         }
         // Not allow move back immediately
         if (!step.isReverseStep(steps.lastOrNull())) {
-            println("add $step")
+            //println("add $step")
             steps.add(step)
             historyImages.add(hashImage)
             return true
         } else {
-            println("Reverse Step not allowed: $step")
+            //println("Reverse Step not allowed: $step")
         }
 
         return false
@@ -32,7 +32,7 @@ class StepList() {
 
     fun backToStep(i: Int, board: Board) {
         if (i > 0 && i < steps.size) {
-            println("Reverse move back to step $i")
+            //println("Reverse move back to step $i")
             for (x in steps.size - 1 downTo i) {
                 steps.removeAt(x).revertMove().also {
                     it.item.move(it.to, board)

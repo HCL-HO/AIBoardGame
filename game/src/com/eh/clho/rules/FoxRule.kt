@@ -12,7 +12,7 @@ fun Fox.getMovableSpots(board: Board): Array<Coordinate> {
     getFoxMovableSpots(this, adjs, board, list)
 //    getFoxMovableSpots(this, tailAdjs, board, list)
     list.forEach {
-        println("fox movables ${it}")
+        //println("fox movables ${it}")
     }
     return TestRules.arrangeMovableOrder(list, lastCoordinate).toTypedArray()
 }

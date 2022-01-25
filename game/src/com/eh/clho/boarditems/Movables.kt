@@ -36,11 +36,11 @@ class Rabbit(override val name: String, override var cordinate: Coordinate) : Mo
 
     override fun _move(newCoordinate: Coordinate, board: Board): Boolean {
         return if (isValidMove(newCoordinate, board)) {
-            println("rabbit move from ${cordinate} to ${newCoordinate}")
+            //println("rabbit move from ${cordinate} to ${newCoordinate}")
             board.setEmpty(cordinate)
             this.cordinate = newCoordinate
             board.placeItem(this)
-            println("rabbit now in ${newCoordinate}")
+            //println("rabbit now in ${newCoordinate}")
             true
         } else {
             false
@@ -58,7 +58,9 @@ class Rabbit(override val name: String, override var cordinate: Coordinate) : Mo
 class Fox(override val name: String, override var cordinate: Coordinate, override val direction: Int) : MovableItem() {
 
     override fun isValidMove(newCoordinate: Coordinate, board: Board): Boolean {
-        return direction == 1 && newCoordinate.x == cordinate.x || direction == 0 && newCoordinate.y == cordinate.y
+        val matchDirection = direction == 1 && newCoordinate.x == cordinate.x || direction == 0 && newCoordinate.y == cordinate.y
+        val adjacent = newCoordinate.isAdjacent(cordinate)
+        return matchDirection && adjacent
     }
 
     override fun copy(): BoardItem {
@@ -81,44 +83,47 @@ class Fox(override val name: String, override var cordinate: Coordinate, overrid
     override fun _move(newCoordinate: Coordinate, board: Board): Boolean {
 
         if (isValidMove(newCoordinate, board)) {
-            if (moveVertical(newCoordinate, board)) {
-                return true
+            if (direction == 1 && newCoordinate.x == cordinate.x) {
+                return moveHeadAndTail(newCoordinate, board, cordinate.y < newCoordinate.y)
             }
 
-            if (moveHorizontal(newCoordinate, board)) {
-                return true
+            if (direction == 0 && newCoordinate.y == cordinate.y) {
+                return moveHeadAndTail(newCoordinate, board, cordinate.x < newCoordinate.x)
             }
+
+//            if (moveVertical(newCoordinate, board)) {
+//                return true
+//            }
+//
+//            if (moveHorizontal(newCoordinate, board)) {
+//                return true
+//            }
         }
 
         return false
     }
 
-    private fun moveVertical(newCoordinate: Coordinate, board: Board): Boolean {
-        if (direction == 1 && newCoordinate.x == cordinate.x) {
-            println("fox move from ${cordinate} to ${newCoordinate}")
-            val moveDown = cordinate.y < newCoordinate.y
-            val tailNewCoord: Coordinate
-            val headNewcoord: Coordinate
-            val clearCoord: Coordinate
+    private fun moveHeadAndTail(newCoordinate: Coordinate, board: Board, moveToTail: Boolean): Boolean {
+        val tailNewCoord: Coordinate
+        val headNewcoord: Coordinate
+        val clearCoord: Coordinate
+        if (moveToTail) {
+            clearCoord = cordinate.copy()
+            tailNewCoord = newCoordinate
+            headNewcoord = tail.copy()
+        } else {
+            clearCoord = tail.copy()
+            tailNewCoord = cordinate.copy()
+            headNewcoord = newCoordinate
+        }
 
-            if (moveDown) {
-                headNewcoord = tail
-                tailNewCoord = newCoordinate
-                clearCoord = cordinate
-            } else {
-                headNewcoord = newCoordinate
-                tailNewCoord = headNewcoord
-                clearCoord = tail
-            }
-
-            if (validMove(headNewcoord, board) && validMove(tailNewCoord, board)) {
-                // move up or down
-                board.setEmpty(clearCoord)
-                cordinate = headNewcoord
-                board.placeItem(this)
-                println("fox now in ${newCoordinate}")
-                return true
-            }
+        if (validMove(headNewcoord, board) && validMove(tailNewCoord, board)) {
+            //println("fox move from ${cordinate} to ${headNewcoord}")
+            board.setEmpty(clearCoord)
+            cordinate = headNewcoord
+            board.placeItem(this)
+            //println("fox now in ${cordinate}")
+            return true
         }
         return false
     }
@@ -130,21 +135,21 @@ class Fox(override val name: String, override var cordinate: Coordinate, overrid
             val headNewcoord: Coordinate
             val clearCoord: Coordinate
             if (moveToRight) {
-                clearCoord = cordinate
+                clearCoord = cordinate.copy()
                 tailNewCoord = newCoordinate
-                headNewcoord = tail
+                headNewcoord = tail.copy()
             } else {
-                clearCoord = tail
-                tailNewCoord = cordinate
+                clearCoord = tail.copy()
+                tailNewCoord = cordinate.copy()
                 headNewcoord = newCoordinate
             }
 
             if (validMove(headNewcoord, board) && validMove(tailNewCoord, board)) {
-                println("fox move from ${cordinate} to ${headNewcoord}")
+                //println("fox move from ${cordinate} to ${headNewcoord}")
                 board.setEmpty(clearCoord)
                 cordinate = headNewcoord
                 board.placeItem(this)
-                println("fox now in ${cordinate}")
+                //println("fox now in ${cordinate}")
                 return true
             }
         }

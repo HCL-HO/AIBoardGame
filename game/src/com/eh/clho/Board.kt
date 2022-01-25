@@ -1,7 +1,6 @@
 package com.eh.clho
 
 import com.eh.clho.boarditems.*
-import com.eh.clho.game.Step
 import java.lang.StringBuilder
 
 class Board(val settings: GameSettings) {
@@ -20,25 +19,29 @@ class Board(val settings: GameSettings) {
             }
         }
 
-        fun emptyOnBoard(cordinate: Coordinate, board: Array<Array<BoardItem>>, holes: List<Hole>) {
+        fun emptyOnBoard(cordinate: Coordinate, board: Array<Array<BoardItem>>, holes: MutableSet<Hole>) {
             board[cordinate.y][cordinate.x] = getEmptyOrHole(cordinate, holes)
         }
 
 
-        fun getEmptyOrHole(coordinate: Coordinate, holes: List<Hole>): BoardItem {
+        fun getEmptyOrHole(coordinate: Coordinate, holes: MutableSet<Hole>): BoardItem {
             return if (holes.any { it.cordinate.sameCoordinate(coordinate) }) Hole(coordinate) else Empty(coordinate)
         }
     }
 
     val historyImage = mutableSetOf<String>()
     val movableItems = mutableListOf<MovableItem>()
-    val holes = mutableListOf<Hole>()
+    val holes = mutableSetOf<Hole>()
     val rabbits = mutableListOf<Rabbit>()
     val foxes = mutableListOf<Fox>()
-
-    var board: Array<Array<BoardItem>>
+    lateinit var board: Array<Array<BoardItem>>
 
     init {
+        fillBoardAllEmpty()
+        drawBoard()
+    }
+
+    private fun fillBoardAllEmpty() {
         val column = mutableListOf<Array<BoardItem>>()
         for (i in 0 until 5) {
             val row = mutableListOf<BoardItem>()
@@ -48,7 +51,6 @@ class Board(val settings: GameSettings) {
             column.add(row.toTypedArray())
         }
         board = column.toTypedArray()
-        drawBoard()
     }
 
     private fun drawBoard() {
@@ -78,9 +80,6 @@ class Board(val settings: GameSettings) {
     }
 
     fun placeItem(item: BoardItem) {
-        settings.items.forEach {
-            markOnBoard(it, board)
-        }
         markOnBoard(item, board)
     }
 
@@ -95,6 +94,7 @@ class Board(val settings: GameSettings) {
         val empyType = getEmptyOrHole(coordinate, holes)
         val invertedCoord = coordinate.getInvertedCoord()
         board[invertedCoord.x][invertedCoord.y] = empyType
+        placeItem(empyType)
     }
 
 
@@ -128,7 +128,6 @@ class Board(val settings: GameSettings) {
 
     fun get(coordinate: Coordinate): BoardItem? {
         if (!coordinate.getInvertedCoord().validCoordinate()) {
-//            println("Invalid Coordinate in Board#get $coordinate")
             return null
         }
 
@@ -193,6 +192,17 @@ class Board(val settings: GameSettings) {
 
     fun record() {
         historyImage.add(board.customHashCode())
+    }
+
+    fun loadSave(cloneBord: Array<Array<BoardItem>>) {
+        movableItems.clear()
+        rabbits.clear()
+        foxes.clear()
+        cloneBord.forEach { row ->
+            row.forEach {
+                addToBoard(it)
+            }
+        }
     }
 
 

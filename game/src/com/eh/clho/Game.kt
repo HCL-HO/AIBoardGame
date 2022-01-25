@@ -13,13 +13,15 @@ import kotlin.system.exitProcess
 
 class Game(val board: Board) {
 
-    val stepList = StepList()
+    var reloadImageRequired = false
 
     fun start() {
 //        unitTest()
-        println("Start")
+        //println("Start")
         startGameLoop(board)
     }
+
+    private lateinit var tree: StepTree
 
     /**
      *  1. all movable items
@@ -32,7 +34,7 @@ class Game(val board: Board) {
     private fun startGameLoop(board: Board) {
         val allMovables = board.movableItems
 //            allMovables.shuffle()
-        val tree = StepTree()
+        tree = StepTree()
 
         recursiveGameLoop(allMovables, tree)
     }
@@ -40,6 +42,8 @@ class Game(val board: Board) {
     private fun recursiveGameLoop(allMovables: MutableList<MovableItem>, node: StepNode) {
         if (checkWinStatus(board)) {
             println(" You have won!!")
+            board.print()
+            node.printInverted(board)
             exitProcess(0)
         }
         allMovables.forEach { item ->
@@ -59,35 +63,23 @@ class Game(val board: Board) {
             }
         }
 
+        val cloneBord = board.board.map { it.clone() }.toTypedArray()
         node.children().forEach { childnode ->
-            if (!TestRules.testIfStepIsRepeated(childnode.step, board)) {
-                childnode.step?.execute(board)
+            if (reloadImageRequired) {
+                //println("Reloading ..")
+                board.loadSave(cloneBord)
+                reloadImageRequired = false
+            }
+            if (!TestRules.testIfStepIsRepeated(childnode.step, board) && childnode.step?.execute(board) == true) {
                 board.print()
                 board.record()
                 // Continue loop all movable items
                 recursiveGameLoop(allMovables, childnode)
             } else {
-                println("repeated board image ${board.board.customHashCode()}")
-                childnode.step?.executeReverse(board)
+                reloadImageRequired = true
             }
         }
     }
-
-//    private fun unitTest() {
-//        board.record()
-//        val hash1 = board.customHashCode()
-//        val c = Coordinate(1, 0)
-//        val r = board.rabbits[0]
-//        val oldCoord = r.cordinate
-//        r.move(c, board)
-//        r.move(oldCoord, board)
-//        val hash2 = board.customHashCode()
-//
-//        println("hash1 $hash1")
-//        println("hash2 $hash2")
-//        println(hash1 == hash2)
-////        TestRules.testRepeatedBoardImg(r, c, board)
-//    }
 
 
     fun checkWinStatus(board: Board): Boolean {

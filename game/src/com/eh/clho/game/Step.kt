@@ -16,14 +16,19 @@ data class Step(val item: MovableItem, val from: Coordinate, val to: Coordinate,
             return false
         }
         val reverse = other.revertMove()
-        return reverse.item.name == item.name && reverse.from == from && reverse.to == to
+        val isReversed = reverse.item.name == item.name && reverse.from == from && reverse.to == to
+        if (isReversed) {
+            //println("Reversed step is not allowed $other")
+        }
+        return isReversed
     }
 
-    fun execute(board: Board) {
-        item.move(to, board)
+    fun execute(board: Board): Boolean {
+        return item.move(to, board)
     }
 
     fun executeReverse(board: Board) {
+        println(this)
         item.move(from, board)
         item.lastCoordinate = lastCoordinate
     }

@@ -1,5 +1,8 @@
 package com.eh.clho
 
+import com.sun.org.apache.xpath.internal.operations.Bool
+import kotlin.math.absoluteValue
+
 data class Coordinate(var x: Int, var y: Int) {
     fun sameCoordinate(coordinate: Coordinate): Boolean {
         return this.x == coordinate.x && this.y == coordinate.y
@@ -68,6 +71,10 @@ data class Coordinate(var x: Int, var y: Int) {
             copy().apply { translate(Direction.UP, 1) }.also { if (it.validCoordinate()) this.add(it) }
             copy().apply { translate(Direction.DOWN, 1) }.also { if (it.validCoordinate()) this.add(it) }
         }.toTypedArray()
+    }
+
+    fun isAdjacent(cordinate: Coordinate): Boolean {
+        return (this.x - cordinate.x).absoluteValue == 1 || (this.y - cordinate.y).absoluteValue == 1
     }
 
     enum class Direction {

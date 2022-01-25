@@ -29,11 +29,10 @@ object TestRules {
             cloneItem.cordinate = step.to
             Board.emptyOnBoard(step.item.cordinate, cloneBord, board.holes)
             Board.markOnBoard(cloneItem, cloneBord)
-            println(" check duplicate")
-            println(board.board.customHashCode())
-            println(cloneBord.customHashCode())
             board.historyImage.contains(cloneBord.customHashCode())
         } else {
+            //println("duplicated bard image")
+            //println(board.board.customHashCode())
             true
         }
     }

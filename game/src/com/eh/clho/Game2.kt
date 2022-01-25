@@ -15,7 +15,7 @@
 //
 //    fun start() {
 ////        unitTest()
-//        println("Start")
+//        //println("Start")
 //        startGameLoop(board)
 //    }
 //
@@ -34,7 +34,7 @@
 //            val allMovables = board.movableItems
 ////            allMovables.shuffle()
 //            allMovables.forEach { item ->
-//                println("calculating ${item.name} at lv ${stepList.size}")
+//                //println("calculating ${item.name} at lv ${stepList.size}")
 //                when (item) {
 //                    is Rabbit -> {
 //                        val movableSpots = item.getMovableSpots(board)
@@ -47,7 +47,7 @@
 //                }
 //            }
 //        } else {
-//            println("End Steps: ${stepList.size}")
+//            //println("End Steps: ${stepList.size}")
 //            exitProcess(0)
 //        }
 //    }
@@ -61,7 +61,7 @@
 //                if (!TestRules.testRepeatedBoardImg(board.customHashCode(), stepList)) {
 //                    startGameLoop(board)
 //                } else {
-//                    println("repeated board image ${board.customHashCode()}")
+//                    //println("repeated board image ${board.customHashCode()}")
 //                }
 //            }
 //        }
@@ -77,9 +77,9 @@
 //        r.move(oldCoord, board)
 //        val hash2 = board.customHashCode()
 //
-//        println("hash1 $hash1")
-//        println("hash2 $hash2")
-//        println(hash1 == hash2)
+//        //println("hash1 $hash1")
+//        //println("hash2 $hash2")
+//        //println(hash1 == hash2)
 ////        TestRules.testRepeatedBoardImg(r, c, board)
 //    }
 //
