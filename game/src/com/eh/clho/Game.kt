@@ -3,6 +3,10 @@ package com.eh.clho
 import com.eh.clho.boarditems.Fox
 import com.eh.clho.boarditems.MovableItem
 import com.eh.clho.boarditems.Rabbit
+import com.eh.clho.game.Step
+import com.eh.clho.game.StepList
+import com.eh.clho.game.StepNode
+import com.eh.clho.game.StepTree
 import com.eh.clho.rules.TestRules
 import com.eh.clho.rules.getMovableSpots
 import kotlin.system.exitProcess
@@ -14,59 +18,76 @@ class Game(val board: Board) {
     fun start() {
 //        unitTest()
         println("Start")
-        startGameLoop(board, 0)
+        startGameLoop(board)
     }
 
-    private fun startGameLoop(board: Board, step: Int) {
-//        val snapShot = board.copy()
-        if (!checkWinStatus(board)) {
-            // all movableItems move lv1
-            val allMovables = board.movableItems
-            allMovables.shuffle()
-            allMovables.forEach { item ->
-                println("calculating ${item.name} at lv $step")
-                when (item) {
-                    is Rabbit -> {
-                        val movableSpots = item.getMovableSpots(board)
-                        proceedMovable(movableSpots, step, item)
-                    }
-                    is Fox -> {
-                        val movableSpots = item.getMovableSpots(board)
-                        proceedMovable(movableSpots, step, item)
-                    }
-                }
-            }
-        } else {
-            println("End Steps: $step")
+    /**
+     *  1. all movable items
+     *  2. for each get adjMovable spots, x = steplist size
+     *  3. back to x step
+     *  4. addmove to steplist
+     *  5. item move
+     *  6. if not repeated image, got to step2 else end
+     */
+    private fun startGameLoop(board: Board) {
+        val allMovables = board.movableItems
+//            allMovables.shuffle()
+        val tree = StepTree()
+
+        recursiveGameLoop(allMovables, tree)
+    }
+
+    private fun recursiveGameLoop(allMovables: MutableList<MovableItem>, node: StepNode) {
+        if (checkWinStatus(board)) {
+            println(" You have won!!")
             exitProcess(0)
         }
-    }
-
-    private fun proceedMovable(movableSpots: Array<Coordinate>, step: Int, item: MovableItem) {
-        movableSpots.forEach { spot ->
-            println("starting at lv $step")
-            stepList.backToStep(step, board)
-            if (stepList.add(Step(item, item.cordinate, spot))) {
-                if (!TestRules.testRepeatedBoardImg(item, spot, board)) {
-                    item.move(spot, board)
-                    board.record()
-                    startGameLoop(board, step + 1)
+        allMovables.forEach { item ->
+            when (item) {
+                is Rabbit -> {
+                    val movableSpots = item.getMovableSpots(board)
+                    movableSpots.map { Step(item, item.cordinate, it) }.forEach {
+                        node.addChildren(it)
+                    }
                 }
+                is Fox -> {
+                    val movableSpots = item.getMovableSpots(board)
+                    movableSpots.map { Step(item, item.cordinate, it) }.forEach {
+                        node.addChildren(it)
+                    }
+                }
+            }
+        }
+
+        node.children().forEach { childnode ->
+            if (!TestRules.testIfStepIsRepeated(childnode.step, board)) {
+                childnode.step?.execute(board)
+                board.print()
+                board.record()
+                // Continue loop all movable items
+                recursiveGameLoop(allMovables, childnode)
+            } else {
+                println("repeated board image ${board.board.customHashCode()}")
+                childnode.step?.executeReverse(board)
             }
         }
     }
 
-    private fun unitTest() {
-        board.record()
-        val f = board.foxes[0]
-        val spots = f.getMovableSpots(board)
-        spots.forEach {
-            println(it)
-        }
-        spots.apply {
-            proceedMovable(spots, 0, f)
-        }
-    }
+//    private fun unitTest() {
+//        board.record()
+//        val hash1 = board.customHashCode()
+//        val c = Coordinate(1, 0)
+//        val r = board.rabbits[0]
+//        val oldCoord = r.cordinate
+//        r.move(c, board)
+//        r.move(oldCoord, board)
+//        val hash2 = board.customHashCode()
+//
+//        println("hash1 $hash1")
+//        println("hash2 $hash2")
+//        println(hash1 == hash2)
+////        TestRules.testRepeatedBoardImg(r, c, board)
+//    }
 
 
     fun checkWinStatus(board: Board): Boolean {
@@ -76,48 +97,6 @@ class Game(val board: Board) {
             }
         }
         return true
-    }
-
-    data class Step(val item: MovableItem, val from: Coordinate, val to: Coordinate) {
-        fun revertMove(): Step {
-            return Step(item, to, from)
-        }
-
-        fun isReverseStep(other: Step?): Boolean {
-            if (other == null) {
-                return false
-            }
-            val reverse = other.revertMove()
-            return reverse.item.name == item.name && reverse.from == from && reverse.to == to
-        }
-    }
-
-    class StepList {
-        val steps = mutableListOf<Step>()
-
-        fun add(step: Step): Boolean {
-            if (steps.size > 100) {
-                exitProcess(0)
-            }
-            // Not allow move back immediately
-            if (!step.isReverseStep(steps.lastOrNull())) {
-                println("add $step")
-                steps.add(step)
-                return true
-            }
-
-            return false
-
-        }
-
-        fun backToStep(i: Int, board: Board) {
-            println("Reverse move back to step $i")
-            for (x in steps.size - 1 downTo i) {
-                steps.removeAt(x).revertMove().also {
-                    board.execute(it)
-                }
-            }
-        }
     }
 
 }

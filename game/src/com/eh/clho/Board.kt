@@ -1,14 +1,36 @@
 package com.eh.clho
 
 import com.eh.clho.boarditems.*
+import com.eh.clho.game.Step
+import java.lang.StringBuilder
 
 class Board(val settings: GameSettings) {
 
     companion object {
         val SPACE = "          "
+
+        fun markOnBoard(it: BoardItem, board: Array<Array<BoardItem>>) {
+            for (i in 0 until it.length) {
+                // revert x and y for readability
+                if (it.direction == 0) {
+                    board[it.cordinate.y][it.cordinate.x + i] = it
+                } else {
+                    board[it.cordinate.y + i][it.cordinate.x] = it
+                }
+            }
+        }
+
+        fun emptyOnBoard(cordinate: Coordinate, board: Array<Array<BoardItem>>, holes: List<Hole>) {
+            board[cordinate.y][cordinate.x] = getEmptyOrHole(cordinate, holes)
+        }
+
+
+        fun getEmptyOrHole(coordinate: Coordinate, holes: List<Hole>): BoardItem {
+            return if (holes.any { it.cordinate.sameCoordinate(coordinate) }) Hole(coordinate) else Empty(coordinate)
+        }
     }
 
-    val historyImage = mutableSetOf<Int>()
+    val historyImage = mutableSetOf<String>()
     val movableItems = mutableListOf<MovableItem>()
     val holes = mutableListOf<Hole>()
     val rabbits = mutableListOf<Rabbit>()
@@ -57,20 +79,9 @@ class Board(val settings: GameSettings) {
 
     fun placeItem(item: BoardItem) {
         settings.items.forEach {
-            markOnBoard(it)
+            markOnBoard(it, board)
         }
-        markOnBoard(item)
-    }
-
-    private fun markOnBoard(it: BoardItem) {
-        for (i in 0 until it.length) {
-            // revert x and y for readability
-            if (it.direction == 0) {
-                board[it.cordinate.y][it.cordinate.x + i] = it
-            } else {
-                board[it.cordinate.y + i][it.cordinate.x] = it
-            }
-        }
+        markOnBoard(item, board)
     }
 
     fun print() {
@@ -81,10 +92,11 @@ class Board(val settings: GameSettings) {
     }
 
     fun setEmpty(coordinate: Coordinate) {
-        val empyType = if (holes.any { it.cordinate.sameCoordinate(coordinate) }) Hole(coordinate) else Empty(coordinate)
+        val empyType = getEmptyOrHole(coordinate, holes)
         val invertedCoord = coordinate.getInvertedCoord()
         board[invertedCoord.x][invertedCoord.y] = empyType
     }
+
 
     fun isCoordinateEmpty(coordinate: Coordinate): Boolean {
         val invert = coordinate.getInvertedCoord()
@@ -179,13 +191,17 @@ class Board(val settings: GameSettings) {
         return coords.toTypedArray()
     }
 
-    fun execute(step: Game.Step) {
-        step.item.move(step.to, this)
-    }
-
     fun record() {
-        historyImage.add(board.contentDeepHashCode())
-        print()
+        historyImage.add(board.customHashCode())
     }
 
+
+}
+
+fun Array<Array<BoardItem>>.customHashCode(): String {
+    val stringBuilder = StringBuilder()
+    this.forEach { row ->
+        stringBuilder.append(row.map { it.name + it.cordinate }.joinToString(""))
+    }
+    return stringBuilder.toString()
 }

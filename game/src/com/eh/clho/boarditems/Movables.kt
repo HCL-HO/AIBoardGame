@@ -7,6 +7,7 @@ import com.eh.clho.Coordinate
 abstract class MovableItem : BoardItem() {
     abstract var lastCoordinate: Coordinate
     protected abstract fun _move(newCoordinate: Coordinate, board: Board): Boolean
+    abstract fun isValidMove(newCoordinate: Coordinate, board: Board): Boolean
     fun move(newCoordinate: Coordinate, board: Board): Boolean {
         return if (!newCoordinate.sameCoordinate(cordinate)) {
             val coordinateCopy = cordinate.copy()
@@ -34,7 +35,7 @@ class Rabbit(override val name: String, override var cordinate: Coordinate) : Mo
     override var lastCoordinate: Coordinate = cordinate
 
     override fun _move(newCoordinate: Coordinate, board: Board): Boolean {
-        return if (board.isCoordinateEmpty(newCoordinate)) {
+        return if (isValidMove(newCoordinate, board)) {
             println("rabbit move from ${cordinate} to ${newCoordinate}")
             board.setEmpty(cordinate)
             this.cordinate = newCoordinate
@@ -46,15 +47,24 @@ class Rabbit(override val name: String, override var cordinate: Coordinate) : Mo
         }
     }
 
+    override fun isValidMove(newCoordinate: Coordinate, board: Board): Boolean {
+        return board.isCoordinateEmpty(newCoordinate)
+    }
+
     override val length: Int
         get() = 1
 }
 
 class Fox(override val name: String, override var cordinate: Coordinate, override val direction: Int) : MovableItem() {
+
+    override fun isValidMove(newCoordinate: Coordinate, board: Board): Boolean {
+        return direction == 1 && newCoordinate.x == cordinate.x || direction == 0 && newCoordinate.y == cordinate.y
+    }
+
     override fun copy(): BoardItem {
-        return Fox(name, cordinate, direction).apply {
-            this.lastCoordinate = lastCoordinate
-        }
+        val f = Fox(name, cordinate, direction)
+        f.lastCoordinate = lastCoordinate
+        return f
     }
 
     override var lastCoordinate: Coordinate = cordinate
@@ -69,12 +79,15 @@ class Fox(override val name: String, override var cordinate: Coordinate, overrid
         }
 
     override fun _move(newCoordinate: Coordinate, board: Board): Boolean {
-        if (moveVertical(newCoordinate, board)) {
-            return true
-        }
 
-        if (moveHorizontal(newCoordinate, board)) {
-            return true
+        if (isValidMove(newCoordinate, board)) {
+            if (moveVertical(newCoordinate, board)) {
+                return true
+            }
+
+            if (moveHorizontal(newCoordinate, board)) {
+                return true
+            }
         }
 
         return false

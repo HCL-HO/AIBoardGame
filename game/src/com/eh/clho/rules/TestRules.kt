@@ -2,9 +2,8 @@ package com.eh.clho.rules
 
 import com.eh.clho.Board
 import com.eh.clho.Coordinate
-import com.eh.clho.boarditems.Empty
-import com.eh.clho.boarditems.Hole
-import com.eh.clho.boarditems.MovableItem
+import com.eh.clho.customHashCode
+import com.eh.clho.game.Step
 
 object TestRules {
     fun arrangeMovableOrder(coords: MutableList<Coordinate>, lastCoordinate: Coordinate): MutableList<Coordinate> {
@@ -16,27 +15,26 @@ object TestRules {
         return coords
     }
 
-    fun testRepeatedBoardImg(item: MovableItem, spot: Coordinate, board: Board): Boolean {
-        val clone = board.board.clone()
-        val itemClone = item.copy() as MovableItem
-        val invertSpot = spot.getInvertedCoord()
-        itemClone.lastCoordinate = itemClone.cordinate
-        itemClone.cordinate = spot
+    fun testRepeatedBoardImg(board: Board): Boolean {
+        return board.historyImage.contains(board.board.customHashCode())
+    }
 
-        clone[invertSpot.x][invertSpot.y] = itemClone
-        for (i in 0 until itemClone.length) {
-            val iCoordInverted = item.cordinate.getInvertedCoord()
-            val holesCoords = board.holes.map { it.cordinate }
-            if (item.direction == 0) {
-                clone[iCoordInverted.x + i][iCoordInverted.y] = if (holesCoords.contains(item.cordinate)) Hole(item.cordinate) else Empty(item.cordinate)
-            } else {
-                clone[iCoordInverted.x][iCoordInverted.y + i] = if (holesCoords.contains(item.cordinate)) Hole(item.cordinate) else Empty(item.cordinate)
-            }
+    fun testIfStepIsRepeated(step: Step?, board: Board): Boolean {
+        if (step == null) {
+            return false
         }
-
-        val hashCode = clone.contentDeepHashCode()
-        println("hash code $hashCode ${board.historyImage.contains(hashCode)}")
-        println(board.historyImage.joinToString(", ") { it.toString() })
-        return board.historyImage.contains(hashCode)
+        val cloneBord = board.board.map { it.clone() }.toTypedArray()
+        val cloneItem = step.item.copy()
+        return if (step.item.isValidMove(step.to, board)) {
+            cloneItem.cordinate = step.to
+            Board.emptyOnBoard(step.item.cordinate, cloneBord, board.holes)
+            Board.markOnBoard(cloneItem, cloneBord)
+            println(" check duplicate")
+            println(board.board.customHashCode())
+            println(cloneBord.customHashCode())
+            board.historyImage.contains(cloneBord.customHashCode())
+        } else {
+            true
+        }
     }
 }

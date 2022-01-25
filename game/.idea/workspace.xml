@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5b9a0444-75de-45fb-915f-36a413406367" name="Default Changelist" comment="" />
+    <list default="true" id="5b9a0444-75de-45fb-915f-36a413406367" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/eh/clho/Game2.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/eh/clho/game/Step.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/eh/clho/game/StepList.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/eh/clho/game/StepTree.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/game/com/eh/clho/Board$Companion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/game/com/eh/clho/Board$Companion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/game/com/eh/clho/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/game/com/eh/clho/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/game/com/eh/clho/Game$Step.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/game/com/eh/clho/Game$StepList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/game/com/eh/clho/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/game/com/eh/clho/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/game/com/eh/clho/rules/FoxRuleKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/game/com/eh/clho/rules/FoxRuleKt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/game/com/eh/clho/rules/TestRules$testRepeatedBoardImg$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/game/com/eh/clho/rules/TestRules.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/game/com/eh/clho/rules/TestRules.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/eh/clho/Board.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/eh/clho/Board.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/eh/clho/Game.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/eh/clho/Game.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/eh/clho/boarditems/Movables.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/eh/clho/boarditems/Movables.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/eh/clho/rules/FoxRule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/eh/clho/rules/FoxRule.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/eh/clho/rules/MovableRules.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/eh/clho/rules/TestRules.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/eh/clho/rules/TestRules.kt" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,26 +58,58 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="832629657">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="kt" value="3236" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="Kotlin" value="3236" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="kt" value="18" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Kotlin" value="18" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/eh/clho/Game.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="49" column="36" selection-start-line="49" selection-start-column="36" selection-end-line="49" selection-end-column="36" />
+            <state relative-caret-position="82">
+              <caret line="44" selection-start-line="44" selection-end-line="44" />
               <folding>
-                <marker date="1642919053998" expanded="true" signature="371:379" ph="..." />
+                <element signature="e#21#370#0" expanded="true" />
+                <marker date="1643116690639" expanded="true" signature="499:507" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/eh/clho/rules/RabbitRules.kt">
+        <entry file="file://$PROJECT_DIR$/src/com/eh/clho/game/Step.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+            <state relative-caret-position="82">
+              <caret line="7" column="139" selection-start-line="7" selection-start-column="139" selection-end-line="7" selection-end-column="139" />
+              <folding>
+                <element signature="e#26#122#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -65,23 +117,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/eh/clho/rules/TestRules.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="50">
-              <caret line="19" column="25" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="25" />
+            <state relative-caret-position="40">
+              <caret line="25" column="69" selection-start-line="25" selection-start-column="69" selection-end-line="25" selection-end-column="69" />
               <folding>
-                <element signature="e#27#123#0" expanded="true" />
+                <element signature="e#27#114#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/eh/clho/boarditems/Movables.kt">
+        <entry file="file://$PROJECT_DIR$/src/com/eh/clho/game/StepTree.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
-              <folding>
-                <element signature="e#32#86#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="75">
+              <caret line="5" column="54" selection-start-line="5" selection-start-column="54" selection-end-line="5" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -89,17 +138,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/eh/clho/rules/FoxRule.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="14" column="61" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="61" />
+            <state relative-caret-position="170">
+              <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/eh/clho/Coordinate.kt">
+        <entry file="file://$PROJECT_DIR$/src/com/eh/clho/rules/RabbitRules.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="68" column="51" selection-start-line="68" selection-start-column="51" selection-end-line="68" selection-end-column="51" />
+            <state relative-caret-position="90">
+              <caret line="10" column="35" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/eh/clho/game/StepList.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="53">
+              <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-end-line="8" />
+              <folding>
+                <element signature="e#26#83#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -107,17 +168,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/eh/clho/Board.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="187" column="15" selection-start-line="187" selection-start-column="15" selection-end-line="187" selection-end-column="15" />
+            <state relative-caret-position="380">
+              <caret line="206" column="1" selection-start-line="206" selection-start-column="1" selection-end-line="206" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/eh/clho/GameSettings.kt">
+        <entry file="file://$PROJECT_DIR$/src/com/eh/clho/boarditems/Movables.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="8" column="54" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
+            <state relative-caret-position="134">
+              <caret line="65" column="24" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="24" />
+              <folding>
+                <element signature="e#32#143#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -134,18 +198,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>invalid mov</find>
-      <find>Movable</find>
-      <find>newCoord</find>
-      <find>when (</find>
-      <find>movableItem.</find>
-      <find>addMovableRecur</find>
-      <find>draw</find>
-      <find>board.</find>
-      <find>Board#get</find>
-      <find>rabbit1</find>
-      <find>setemp</find>
-      <find>board.prin</find>
       <find>board.print</find>
       <find>holes</find>
       <find>hole</find>
@@ -154,16 +206,28 @@
       <find>getMovableSpots</find>
       <find>stepli</find>
       <find>steplis</find>
-      <find>move</find>
       <find>NOT_ADJACENT</find>
       <find>boardItem</find>
       <find>print</find>
       <find>placeitem</find>
       <find>board.print()</find>
       <find>testReepatedBoardImg</find>
-      <find>step</find>
       <find>printl</find>
       <find>testR</find>
+      <find>move(</find>
+      <find>add</find>
+      <find>move</find>
+      <find>adjs</find>
+      <find>fox movable</find>
+      <find>fox</find>
+      <find>Coordinate(x=0, y=1)</find>
+      <find>to Coordinate(x=0, y=1)</find>
+      <find>markon</find>
+      <find>Hole</find>
+      <find>getem</find>
+      <find>getEmptyOrHole</find>
+      <find>custom</find>
+      <find>step</find>
     </findStrings>
     <replaceStrings>
       <replace>null</replace>
@@ -187,7 +251,11 @@
       <replace>board</replace>
       <replace>testRepeatedBoardImg</replace>
       <replace>board.record()</replace>
+      <replace>stepList.size</replace>
     </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GradleLocalSettings">
     <option name="projectSyncType">
@@ -213,13 +281,17 @@
         <option value="$PROJECT_DIR$/src/com/eh/clho/boarditems/BoardItem.kt" />
         <option value="$PROJECT_DIR$/src/com/eh/clho/rules/BoardRules.kt" />
         <option value="$PROJECT_DIR$/src/com/eh/clho/rules/MovableRules.kt" />
-        <option value="$PROJECT_DIR$/src/com/eh/clho/main.kt" />
         <option value="$PROJECT_DIR$/src/com/eh/clho/GameSettingCollection.kt" />
-        <option value="$PROJECT_DIR$/src/com/eh/clho/boarditems/Movables.kt" />
         <option value="$PROJECT_DIR$/src/com/eh/clho/Coordinate.kt" />
         <option value="$PROJECT_DIR$/src/com/eh/clho/GameSettings.kt" />
         <option value="$PROJECT_DIR$/src/com/eh/clho/rules/RabbitRules.kt" />
+        <option value="$PROJECT_DIR$/src/com/eh/clho/main.kt" />
+        <option value="$PROJECT_DIR$/src/com/eh/clho/game/StepList.kt" />
+        <option value="$PROJECT_DIR$/src/com/eh/clho/Game2.kt" />
+        <option value="$PROJECT_DIR$/src/com/eh/clho/game/StepTree.kt" />
         <option value="$PROJECT_DIR$/src/com/eh/clho/rules/FoxRule.kt" />
+        <option value="$PROJECT_DIR$/src/com/eh/clho/game/Step.kt" />
+        <option value="$PROJECT_DIR$/src/com/eh/clho/boarditems/Movables.kt" />
         <option value="$PROJECT_DIR$/src/com/eh/clho/Board.kt" />
         <option value="$PROJECT_DIR$/src/com/eh/clho/Game.kt" />
         <option value="$PROJECT_DIR$/src/com/eh/clho/rules/TestRules.kt" />
@@ -232,12 +304,12 @@
     <option name="width" value="1400" />
     <option name="height" value="757" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -268,20 +340,32 @@
               <item name="game" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="clho" type="462c0819:PsiDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="clho" type="462c0819:PsiDirectoryNode" />
               <item name="rules" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1642935260801" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1643117155387" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.eh.clho" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/com/eh/clho" />
       <recent name="$PROJECT_DIR$/src/boarditems" />
@@ -352,34 +436,45 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="20" y="43" width="1400" height="757" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="UI Designer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2496318" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2533137" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" weight="0.32776934" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" weight="0.7966616" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.5144158" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.54172987" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.52352047" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.44461304" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Maven Projects" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32776934" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32928678" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.36418816" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
     </layout>
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -388,34 +483,27 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/com/eh/clho/rules/FoxRule.kt</url>
-          <line>42</line>
-          <properties />
-          <option name="timeStamp" value="71" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/com/eh/clho/rules/FoxRule.kt</url>
-          <line>39</line>
-          <properties />
-          <option name="timeStamp" value="73" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/com/eh/clho/Coordinate.kt</url>
           <line>25</line>
           <properties />
           <option name="timeStamp" value="80" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/com/eh/clho/rules/FoxRule.kt</url>
-          <line>43</line>
+          <url>file://$PROJECT_DIR$/src/com/eh/clho/game/StepTree.kt</url>
           <properties />
-          <option name="timeStamp" value="81" />
+          <option name="timeStamp" value="91" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/com/eh/clho/rules/FoxRule.kt</url>
-          <line>44</line>
+          <url>file://$PROJECT_DIR$/src/com/eh/clho/boarditems/Movables.kt</url>
+          <line>37</line>
           <properties />
-          <option name="timeStamp" value="82" />
+          <option name="timeStamp" value="102" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/com/eh/clho/rules/TestRules.kt</url>
+          <line>34</line>
+          <properties />
+          <option name="timeStamp" value="107" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -435,20 +523,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/eh/clho/rules/BoardRules.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="21" lean-forward="true" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/eh/clho/main.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="59" selection-start-line="6" selection-start-column="59" selection-end-line="6" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/eh/clho/rules/BoardRules.kt" />
     <entry file="file://$PROJECT_DIR$/src/com/eh/clho/GameSettingCollection.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
@@ -456,6 +531,20 @@
           <folding>
             <element signature="e#21#91#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$KOTLIN_BUNDLED$/lib/kotlin-stdlib-sources.jar!/kotlin/Any.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="42" column="20" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/eh/clho/GameSettings.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="8" column="54" lean-forward="true" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
         </state>
       </provider>
     </entry>
@@ -471,79 +560,114 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/eh/clho/Coordinate.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="68" column="51" selection-start-line="68" selection-start-column="51" selection-end-line="68" selection-end-column="51" />
+        <state relative-caret-position="120">
+          <caret line="63" column="8" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/eh/clho/GameSettings.kt">
+    <entry file="jar://$KOTLIN_BUNDLED$/lib/kotlin-stdlib-sources.jar!/common/generated/_Ranges.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="8" column="54" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
+        <state relative-caret-position="71">
+          <caret line="312" column="49" selection-start-line="312" selection-start-column="47" selection-end-line="312" selection-end-column="49" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/eh/clho/rules/FoxRule.kt">
+    <entry file="file://$PROJECT_DIR$/src/com/eh/clho/main.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="14" column="61" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="61" />
+        <state relative-caret-position="90">
+          <caret line="6" column="59" selection-start-line="6" selection-start-column="59" selection-end-line="6" selection-end-column="59" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$KOTLIN_BUNDLED$/lib/kotlin-stdlib-sources.jar!/kotlin/Any.kt">
+    <entry file="file://$PROJECT_DIR$/src/com/eh/clho/game/StepList.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="42" column="20" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/eh/clho/Board.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="187" column="15" selection-start-line="187" selection-start-column="15" selection-end-line="187" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/eh/clho/boarditems/Movables.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+        <state relative-caret-position="53">
+          <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-end-line="8" />
           <folding>
-            <element signature="e#32#86#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/eh/clho/boarditems/BoardItem.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/eh/clho/Game.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="49" column="36" selection-start-line="49" selection-start-column="36" selection-end-line="49" selection-end-column="36" />
-          <folding>
-            <marker date="1642919053998" expanded="true" signature="371:379" ph="..." />
+            <element signature="e#26#83#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/eh/clho/rules/RabbitRules.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+        <state relative-caret-position="90">
+          <caret line="10" column="35" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/eh/clho/Game2.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="12" lean-forward="true" selection-start-column="2" selection-end-line="95" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/eh/clho/rules/FoxRule.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/eh/clho/game/StepTree.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="54" selection-start-line="5" selection-start-column="54" selection-end-line="5" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/eh/clho/game/Step.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="7" column="139" selection-start-line="7" selection-start-column="139" selection-end-line="7" selection-end-column="139" />
+          <folding>
+            <element signature="e#26#122#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/eh/clho/boarditems/BoardItem.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-90">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/eh/clho/boarditems/Movables.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="65" column="24" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="24" />
+          <folding>
+            <element signature="e#32#143#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/eh/clho/Board.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="206" column="1" selection-start-line="206" selection-start-column="1" selection-end-line="206" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/eh/clho/Game.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
+          <folding>
+            <element signature="e#21#370#0" expanded="true" />
+            <marker date="1643116690639" expanded="true" signature="499:507" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/eh/clho/rules/TestRules.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="19" column="25" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="25" />
+        <state relative-caret-position="40">
+          <caret line="25" column="69" selection-start-line="25" selection-start-column="69" selection-end-line="25" selection-end-column="69" />
           <folding>
-            <element signature="e#27#123#0" expanded="true" />
+            <element signature="e#27#114#0" expanded="true" />
           </folding>
         </state>
       </provider>
